@@ -4,9 +4,9 @@ import pandas as pd
 # datos sample
 data = {
     'Name': ['patas', 'proteina', 'orejas'],
-    'Image_Path': ['images/patas.jpg',
-                   'images/protein.jpg',
-                   'images/orejas.jpg'],
+    'Image_Path': ['patas.jpg',
+                   'protein.jpg',
+                   'orejas.jpg'],
     'Description': ['Description1', 'Description2', 'Description3'],
     'Image': [True, False, True]
 }
