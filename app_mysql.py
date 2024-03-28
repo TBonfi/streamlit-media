@@ -4,7 +4,7 @@ import mysql.connector
 from PIL import Image
 from io import BytesIO
 
-# Connect to the database (save login info as global variables)
+# Para conectarse a la base usar variables globales para almacenar con seguridad los datos.
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
@@ -12,15 +12,16 @@ mydb = mysql.connector.connect(
   database="protein_db"
 )
 
+# Recuperamos el dataframe de la query
 query = "SELECT * FROM demo"
 df = pd.read_sql(query, con=mydb)
 
 
-# Function to read image from binary data
+# Función auxiliar para convertir el texto (originalmente una imagen, que se guarda como texto) a imagen
 def read_image(image_data):
     return Image.open(BytesIO(image_data))
 
-# Apply the function to read images from the DataFrame
+# Pisamos la columna de texto
 df['Image_demo'] = df['Image_demo'].apply(read_image)
 
 
