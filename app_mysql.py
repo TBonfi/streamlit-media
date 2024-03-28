@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
 import mysql.connector
+from PIL import Image
+from io import BytesIO
 
+# Connect to the database (save login info as global variables)
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
@@ -12,8 +15,6 @@ mydb = mysql.connector.connect(
 query = "SELECT * FROM demo"
 df = pd.read_sql(query, con=mydb)
 
-from PIL import Image
-from io import BytesIO
 
 # Function to read image from binary data
 def read_image(image_data):
